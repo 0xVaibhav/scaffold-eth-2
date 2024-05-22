@@ -6,7 +6,7 @@ import { Contract, ContractCodeStatus, ContractName, contracts } from "~~/utils/
 
 /**
  * Gets the matching contract info for the provided contract name from the contracts present in deployedContracts.ts
- * and externalContracts.ts corresponding to targetNetworks configured in scaffold.config.ts
+ * and externalContracts.ts corresponding to targetNetworks configured in scaffold.
  */
 export const useDeployedContractInfo = <TContractName extends ContractName>(contractName: TContractName) => {
   const isMounted = useIsMounted();

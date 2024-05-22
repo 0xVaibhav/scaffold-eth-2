@@ -4,6 +4,761 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  31337: {
+    HealthInsurance: {
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "details",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "premium",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "coverage",
+              type: "uint256",
+            },
+          ],
+          name: "addScheme",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "approveClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "claimCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "claims",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "claimant",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "enum HealthInsurance.ClaimStatus",
+              name: "status",
+              type: "uint8",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+          ],
+          name: "createPolicy",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+          ],
+          name: "deletePolicy",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+          ],
+          name: "deleteScheme",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "description",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "fileClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "getClaim",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "claimId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "policyId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "claimant",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "description",
+                  type: "string",
+                },
+                {
+                  internalType: "enum HealthInsurance.ClaimStatus",
+                  name: "status",
+                  type: "uint8",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct HealthInsurance.Claim",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+          ],
+          name: "getPayments",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "policyId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "payer",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "timestamp",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct HealthInsurance.PaymentRecord[]",
+              name: "",
+              type: "tuple[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+          ],
+          name: "getPolicy",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "policyId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "address",
+                  name: "owner",
+                  type: "address",
+                },
+                {
+                  internalType: "uint256",
+                  name: "schemeId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "premium",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "coverage",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct HealthInsurance.Policy",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+          ],
+          name: "getScheme",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "uint256",
+                  name: "schemeId",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "string",
+                  name: "details",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "premium",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "coverage",
+                  type: "uint256",
+                },
+              ],
+              internalType: "struct HealthInsurance.Scheme",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getUser",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "address",
+                  name: "userAddress",
+                  type: "address",
+                },
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "age",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "email",
+                  type: "string",
+                },
+                {
+                  internalType: "bool",
+                  name: "isRegistered",
+                  type: "bool",
+                },
+              ],
+              internalType: "struct HealthInsurance.User",
+              name: "",
+              type: "tuple",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "isUserRegistered",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+          ],
+          name: "payPremium",
+          outputs: [],
+          stateMutability: "payable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "paymentRecords",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "payer",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "timestamp",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "policies",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+            {
+              internalType: "address",
+              name: "owner",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "premium",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "coverage",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "policyCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "age",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "email",
+              type: "string",
+            },
+          ],
+          name: "registerUser",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "rejectClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "schemeCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+          ],
+          name: "schemeExists",
+          outputs: [
+            {
+              internalType: "bool",
+              name: "",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "schemes",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "details",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "premium",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "coverage",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "policyId",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+          ],
+          name: "updatePolicy",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "schemeId",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "details",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "premium",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "coverage",
+              type: "uint256",
+            },
+          ],
+          name: "updateScheme",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "age",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "email",
+              type: "string",
+            },
+          ],
+          name: "updateUser",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "users",
+          outputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "age",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "email",
+              type: "string",
+            },
+            {
+              internalType: "bool",
+              name: "isRegistered",
+              type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "uint256",
+              name: "claimId",
+              type: "uint256",
+            },
+          ],
+          name: "verifyClaim",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
